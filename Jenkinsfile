@@ -19,14 +19,15 @@ pipeline {
             }
         }
 
-        stage(' Test de Arranque') {
+	stage('✅ Test de Arranque') {
             steps {
                 script {
                     echo 'Probando que la app arranca...'
-                    // Ejecutamos, esperamos un poco y borramos (--rm)
-                    // Si falla al arrancar, Jenkins marcará error
-                    sh 'docker run --rm mi-app-automatica:v1 python -c "print(\"Test Exitoso\")"'
+                    // Esto imprimirá "Python 3.9.x". Si sale, es que funciona.
+                    sh 'docker run --rm mi-app-automatica:v1 python --version'
                 }
+            }
+        }                }
             }
         }
     }
